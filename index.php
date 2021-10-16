@@ -14,7 +14,7 @@ else{
 <head></head>
 <body>
     <?php echo "controller = ".$controller.", action = ".$action ;?>
-    <br>[<a href=""> HOME </a>]
+    <br>[<a href="?controller=pages&action=home"> HOME </a>]
     <br>[<a href="?controller=medicine&action=index"> medicine </a>]
     <?php require_once("routes.php");?>
 </body>
