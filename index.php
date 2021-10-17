@@ -14,8 +14,11 @@ else{
 <head></head>
 <body>
     <?php echo "controller = ".$controller.", action = ".$action ;?>
-    <br>[<a href="?controller=pages&action=home"> HOME </a>]
-    <br>[<a href="?controller=medicine&action=index"> medicine </a>]
+    <br>
+    <br>
+    [<a href="?controller=pages&action=home"> HOME </a>] &nbsp;
+    [<a href="?controller=medicine&action=index"> MEDICINE </a>]
+    <br> 
     <?php require_once("routes.php");?>
 </body>
 </html>
