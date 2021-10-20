@@ -22,6 +22,26 @@ class Medicine{
         $this->duration = $duration;
     }
 
+    public static function get($i)
+    {
+        require("connection_connect.php");
+        $sql = "SELECT `Mid`, `Mname`, `Mdetail`, `Meffect`, `Mdose`, `Mtime`, `Mduration` 
+        FROM `medicine` WHERE `Mid` ='$i'";
+        $result = $conn->query($sql);
+        $my_row = $result->fetch_assoc();
+        $id = $my_row[Mid];
+        $name=$my_row[Mname];
+        $detail=$my_row[Mdetail];
+        $effect=$my_row[Meffect];
+        $dose=$my_row[Mdose];
+        $time=$my_row[Mtime];
+        $duration=$my_row[Mduration];
+        require("connection_close.php");
+        return new Medicine($id,$name,$detail,$effect,$dose,$time,$duration);
+
+
+    }
+
     public static function getAll()
     {
         $medicineList=[];
@@ -75,6 +95,32 @@ class Medicine{
         require("connection_close.php");
         return "[ add success $result rows ]";
     }
+
+    public static function update($id,$name,$detail,$effect,$dose,$time,$duration)
+    {
+        require("connection_connect.php");
+        $sql = "UPDATE `medicine` 
+        SET `Mname`='$name',`Mdetail`='$detail',`Meffect`='$effect',`Mdose`=$dose,`Mtime`='$time',`Mduration`='$duration' 
+        WHERE `Mid`= '$id'";
+        $result = $conn->query($sql);
+        require("connection_close.php");
+        return "update success $result row";
+
+    }
+
+    public static function delete($id)
+    {
+        require("connection_connect.php");
+        $sql = "DELETE FROM `medicine` 
+        WHERE Mid = '$id'";
+        $result = $conn->query($sql);
+        require("connection_close.php");
+        return "Delete success $result row";
+    }
+
+
+
+    
 
 }
 ?>
