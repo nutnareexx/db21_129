@@ -18,7 +18,9 @@
     {
         echo "<tr> <td> $m->id </td> <td> $m->name </td> <td> $m->detail </td> 
         <td> $m->effect </td> <td> $m->dose </td> <td> $m->time </td> <td> $m->duration </td> 
-        <td> update </td> <td> delete </td></tr>";
+        <td> <a href=?controller=medicine&action=updateForm&id=$m->id> UPDATE </a> </td> 
+        <td> <a href=?controller=medicine&action=deleteConfirm&id=$m->id> DELETE </td>
+        </tr>";
     }
     echo"</table>";
     ?>
