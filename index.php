@@ -18,6 +18,7 @@ else{
     <br>
     [<a href="?controller=pages&action=home"> HOME </a>] &nbsp;
     [<a href="?controller=medicine&action=index"> MEDICINE </a>]
+    [<a href="?controller=prescription&action=index"> PRESCRIPTION </a>]
     <br> 
     <?php require_once("routes.php");?>
 </body>
