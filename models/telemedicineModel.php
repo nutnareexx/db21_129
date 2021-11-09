@@ -5,15 +5,17 @@ class Telemedicine{
     public $tsym;
     public $ttem;
     public $tdate;
+    public $staff;
 
 
-    public function __construct($tid,$pid,$tsym,$ttem,$tdate)
+    public function __construct($tid,$pid,$tsym,$ttem,$tdate,$staff)
     {
         $this->tid = $tid;
         $this->pid = $pid;
         $this->tsym = $tsym;
         $this->ttem = $ttem;
         $this->tdate =$tdate;
+        $this->staff=$staff;
         
     }
 
@@ -30,7 +32,8 @@ class Telemedicine{
             $tsym=$my_row[symptom];
             $ttem=$my_row[temperature];
             $tdate=$my_row[teledate];
-            $telemedicineList[] = new Telemedicine($tid,$pid,$tsym,$ttem,$tdate);
+            $staff=$my_row[staffinfh];
+            $telemedicineList[] = new Telemedicine($tid,$pid,$tsym,$ttem,$tdate,$staff);
         }
         require("connection_close.php");
         return $telemedicineList;
