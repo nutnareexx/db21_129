@@ -23,7 +23,7 @@
             if($d->docid==$preList->d_ID){
                 echo" selected='selected'";
             }
-            echo">$d->Docname $d->Doclast</option>";
+            echo">$d->Docname </option>";
         }?>"
         </select></label><br>
 
