@@ -3,7 +3,7 @@
             <br> Telemedicine ID : $pList->teleID
             <br> Prescription Date : $pList->preDate
             <br> Doctor ID : $pList->d_ID
-            <br> Doctor Name : $pList->dname $pList->dlast
+            <br> Doctor Name : $pList->dname 
             <br> Medicine ID : $pList->mid
             <br> Medicine Name : $pList->mname
             <br> Prescription Dose : $pList->predose
