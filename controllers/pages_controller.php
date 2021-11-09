@@ -3,6 +3,7 @@ class PagesController
 {
     public function home()
     {
+        $hList = Home::getAll();
         require_once('views/pages/home.php');
     }
     public function error()
