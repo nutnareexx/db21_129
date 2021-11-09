@@ -27,10 +27,9 @@ class Doctor{
         {
             $Docid=$my_row[doctor_id];
             $Docname=$my_row[name_D];
-            $Doclast=$my_row[lastname_D];
             $Docphon=$my_row[phone_D];
             $Dochosid=$my_row[hospital_id];
-            $doctorList[] = new Doctor($Docid,$Docname,$Doclast,$Docphon,$Dochosid);
+            $doctorList[] = new Doctor($Docid,$Docname,$Docphon,$Dochosid);
         }
         require("connection_close.php");
         return $doctorList;
