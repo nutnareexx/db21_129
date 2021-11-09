@@ -5,20 +5,18 @@ class Prescription{
     public $preDate;
     public $d_ID;
     public $dname;
-    public $dlast;
     public $mid;
     public $mname;
     public $predose;
     public $preNote;
 
-    public function __construct($pid,$tid,$pdate,$did,$dname,$dl,$mid,$mname,$pdose,$pnote)
+    public function __construct($pid,$tid,$pdate,$did,$dname,$mid,$mname,$pdose,$pnote)
     {
         $this->pid = $pid;
         $this->teleID = $tid;
         $this->preDate = $pdate;
         $this->d_ID = $did;
         $this->dname =$dname;
-        $this->dlast = $dl;
         $this->mid = $mid;
         $this->mname = $mname;
         $this->predose = $pdose;
@@ -28,7 +26,7 @@ class Prescription{
     public static function get($pid,$mid)
     {
         require("connection_connect.php");
-        $sql = "SELECT p.preID,p.teleID,p.preDate,p.doctor_id,c.name_D,c.lastname_D,d.Mid,m.Mname,d.preDose,d.prenote
+        $sql = "SELECT p.preID,p.teleID,p.preDate,p.doctor_id,c.name_D,d.Mid,m.Mname,d.preDose,d.prenote
         FROM prescription AS p
         NATURAL JOIN detailPrescription AS d NATURAL JOIN Doctor AS c NATURAL JOIN medicine AS m
         WHERE p.preID='$pid' AND d.Mid='$mid'";
@@ -39,20 +37,19 @@ class Prescription{
         $preDate=$my_row[preDate];
         $d_ID=$my_row[doctor_id];
         $dname=$my_row[name_D];
-        $dlast=$my_row[lastname_D];
         $mid=$my_row[Mid];
         $mname=$my_row[Mname];
         $predose=$my_row[preDose];
         $preNote=$my_row[prenote];
         require("connection_close.php");
-        return new Prescription($pid,$teleID,$preDate,$d_ID,$dname,$dlast,$mid,$mname,$predose,$preNote);
+        return new Prescription($pid,$teleID,$preDate,$d_ID,$dname,$mid,$mname,$predose,$preNote);
     }
 
     public static function getAll()
     {
         $prescriptionList=[];
         require("connection_connect.php");
-        $sql = "SELECT p.preID,p.teleID,p.preDate,p.doctor_id,c.name_D,c.lastname_D,d.Mid,m.Mname,d.preDose,d.prenote
+        $sql = "SELECT p.preID,p.teleID,p.preDate,p.doctor_id,c.name_D,d.Mid,m.Mname,d.preDose,d.prenote
         FROM prescription AS p
         NATURAL JOIN detailPrescription AS d NATURAL JOIN Doctor AS c NATURAL JOIN medicine AS m";
         $result = $conn->query($sql);
@@ -63,12 +60,11 @@ class Prescription{
             $preDate=$my_row[preDate];
             $d_ID=$my_row[doctor_id];
             $dname=$my_row[name_D];
-            $dlast=$my_row[lastname_D];
             $mid=$my_row[Mid];
             $mname=$my_row[Mname];
             $predose=$my_row[preDose];
             $preNote=$my_row[prenote];
-            $prescriptionList[] = new Prescription($pid,$teleID,$preDate,$d_ID,$dname,$dlast,$mid,$mname,$predose,$preNote);
+            $prescriptionList[] = new Prescription($pid,$teleID,$preDate,$d_ID,$dname,$mid,$mname,$predose,$preNote);
         }
         require("connection_close.php");
         return $prescriptionList;
@@ -107,11 +103,11 @@ class Prescription{
     {
         $prescriptionList=[];
         require("connection_connect.php");
-        $sql = "SELECT p.preID,p.teleID,p.preDate,p.doctor_id,c.name_D,c.lastname_D,d.Mid,m.Mname,d.preDose,d.prenote
+        $sql = "SELECT p.preID,p.teleID,p.preDate,p.doctor_id,c.name_D,d.Mid,m.Mname,d.preDose,d.prenote
         FROM prescription AS p
         NATURAL JOIN detailPrescription AS d NATURAL JOIN Doctor AS c NATURAL JOIN medicine AS m
         WHERE (p.preID LIKE '%$key%' OR p.teleID LIKE '%$key%' OR p.preDate LIKE '%$key%' OR p.doctor_id LIKE '%$key%' OR 
-        c.name_D LIKE '%$key%' OR c.lastname_D LIKE '%$key%' OR d.Mid LIKE '%$key%' OR m.Mname LIKE '%$key%' OR 
+        c.name_D LIKE '%$key%'  OR d.Mid LIKE '%$key%' OR m.Mname LIKE '%$key%' OR 
         d.preDose LIKE '%$key%' OR d.prenote LIKE '%$key%')";
         $result = $conn->query($sql);
         while($my_row = $result->fetch_assoc())
@@ -121,12 +117,11 @@ class Prescription{
             $preDate=$my_row[preDate];
             $d_ID=$my_row[doctor_id];
             $dname=$my_row[name_D];
-            $dlast=$my_row[lastname_D];
             $mid=$my_row[Mid];
             $mname=$my_row[Mname];
             $predose=$my_row[preDose];
             $preNote=$my_row[prenote];
-            $prescriptionList[] = new Prescription($pid,$teleID,$preDate,$d_ID,$dname,$dlast,$mid,$mname,$predose,$preNote);
+            $prescriptionList[] = new Prescription($pid,$teleID,$preDate,$d_ID,$dname,$mid,$mname,$predose,$preNote);
         }
         require("connection_close.php");
         return $prescriptionList;
