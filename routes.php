@@ -1,5 +1,6 @@
 <?php 
 $controllers = array('pages'=>['home','error'],
+                    'doctorsopinion'=>['index','newOpinion','addOpinion','search','updateForm','update'],
                     'medicine'=>['index','newMedicine','addMedicine','search','updateForm','update','deleteConfirm','delete'],
                     'prescription'=>['index','newPrescription','newdeatilPrescription','addPrescription','add_detailPrescription','search','updateForm','update','deleteConfirm','delete']);
 
@@ -23,6 +24,13 @@ function call($controller,$action){
             require_once("models/telemedicineModel.php");
             require_once("models/pre_detail.php");
             $controller = new PreprescriptionController();
+        break;
+
+        case"doctorsopinion":
+            require_once("models/opinionModel.php");
+            require_once("models/doctorModel.php");
+            require_once("models/telemedicineModel.php");
+            $controller = new OpinionController();
         break;
     }
     $controller->{$action}();
