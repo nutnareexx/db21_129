@@ -11,7 +11,7 @@
 <br>
 <br><label> Prescription Date <input type="date" name="predate"/> </label>
 <br>
-<br><label> Doctor ID <select name="docID">
+<br><label> Doctor <select name="docID">
     <?php foreach($doctorList as $d){
         echo "<option value=$d->Docid> $d->Docid </option>";
     }
