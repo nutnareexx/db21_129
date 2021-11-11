@@ -14,7 +14,7 @@
     </select></label>
 <br>
 
-<br><label> Medicine ID <select name="medID">
+<br><label> Medicine <select name="medID">
     <?php foreach($medicineList as $m){
         echo "<option value=$m->id> $m->name </option>";
     }
