@@ -1,7 +1,6 @@
 <p> Welcome to our homepage </p>
 
 <br>
-<br>
 
 
 <table border="1">
