@@ -11,7 +11,7 @@
     <br>
     <br><label> Opinion Date <input type="date" name="date"/> </label>
     <br>
-    <br><label> Doctor ID <select name="doctorid">
+    <br><label> Doctor <select name="doctorid">
         <?php foreach($doctorList as $d)
         {
             echo "<option value = $d->Docid> $d->Docname  </option>";
