@@ -19,8 +19,9 @@
     {
         echo "<tr> <td> $o->oid </td> <td> $o->d </td> 
         <td> <a href= http://158.108.207.4/db21/db21_127/?controller=telemedicine&action=search&key=$o->teid /> $o->teid </a></td> 
-        <td> $o->p </td> <td> $o->pname </td> <td> $o->plast </td> 
-        <td> <a href= http://158.108.207.4/db21/db21_125/Myweb/?controller=doctor&action=search&key=$o->doid /> $o->doid </a></td> 
+        <td> <a href= http://158.108.207.4/db21/db21_127/?controller=patientinfh&action=search&key=$o->p>$o->p </td> 
+        <td> $o->pname </td> <td> $o->plast </td> 
+        <td> <a href= http://158.108.207.4/db21/db21_125/?controller=doctor&action=search&key=$o->doid /> $o->doid </a></td> 
         <td> $o->doname </td> <td> $o->op </td>
         <td> <a href=?controller=doctorsopinion&action=updateForm&id=$o->oid> UPDATE </a> </td> 
         </tr>";
