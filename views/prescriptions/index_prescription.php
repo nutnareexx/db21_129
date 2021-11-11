@@ -21,7 +21,7 @@
         echo "<tr> <td> $p->pid </td> 
         <td> <a href= http://158.108.207.4/db21/db21_127/?controller=telemedicine&action=search&key=$p->teleID /> $p->teleID </a> </td> 
         <td> $p->preDate </td> 
-        <td> <a href= http://158.108.207.4/db21/db21_125/Myweb/?controller=doctor&action=search&key=$p->d_ID  /> $p->d_ID </a> </td> 
+        <td> <a href= http://158.108.207.4/db21/db21_125/?controller=doctor&action=search&key=$p->d_ID  /> $p->d_ID </a> </td> 
         <td> $p->dname 
         <td> <a href=?controller=medicine&action=search&key=$p->mid> $p->mid </td> 
         <td> $p->mname </td> <td> $p->predose </td> <td> $p->preNote </td> 
